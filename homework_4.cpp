@@ -7,12 +7,12 @@ main()
     float c, d;
     while(1)
     {
-    	printf("1整数2小数0退出\n");//1整数2小数0退出 
+    	printf("请输入你想进行的操作，仅输入数字即可\n1.整数\n2.小数\n0.退出\n");//1整数2小数0退出 
         scanf("%d", &n);
         if(n==0)
         	break;
         else{
-        	printf("个数\n");
+        	printf("请输入想生成等式的个数\n");
 			scanf("%d",&N);
 		    switch (n)
 		    {
