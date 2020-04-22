@@ -31,17 +31,20 @@ void gen(int n)
 	}
 }
 //为out函数提供输出的符号
-int returnfh()
+int returnfh(int i)
 {
-	srand((unsigned)time(NULL));
-	int fun_fh;
 	while(1){
-		fun_fh=rand()%4;
-		if(sizes[fun_fh]){
-			return fun_fh;
+		if(sizes[((int)t[i])%4]){
+			return ((int)t[i])%4;
+		}
+		else{
+			i++;
+			if(i==x){
+				i=0;
+			}
 		}
 	}
-} 
+}
 //为out函数提供输出的符号 
 void outfh(int fun_fh)
 {
@@ -110,13 +113,16 @@ void out(int n)
 				x1=t[i++];
 				x2=t[i++];
 				x3=t[i];
-				fh2=returnfh();
+				fh2=returnfh(i);
 				//避免出现除以0的情况 
 				if((x2-x3)==0&&fh2==1){
 					int flagsize=sizes[3];
 					sizes[3]=0;
-					fh1=returnfh();
+					fh1=returnfh(i);
 					sizes[3]=flagsize;
+				}
+				else{
+					fh1=returnfh(i);
 				}
 				if(n==1){
 					printf("%.0lf",x1);
@@ -145,13 +151,16 @@ void out(int n)
 				x1=t[i++];
 				x2=t[i++];
 				x3=t[i];
-				fh2=returnfh();
+				fh2=returnfh(i);
 				//避免出现除以0的情况 
 				if((x2-x3)==0&&fh2==1){
 					int flagsize=sizes[3];
 					sizes[3]=0;
-					fh1=returnfh();
+					fh1=returnfh(i);
 					sizes[3]=flagsize;
+				}
+				else{
+					fh1=returnfh(i);
 				}
 				if(n==1){
 					fprintf(fp1,"%.0lf",x1);
@@ -183,13 +192,16 @@ void out(int n)
 				x1=t[i++];
 				x2=t[i++];
 				x3=t[i];
-				fh2=returnfh();
+				fh2=returnfh(i);
 				//避免出现除以0的情况 
 				if((x2-x3)==0&&fh2==1){
 					int flagsize=sizes[3];
 					sizes[3]=0;
-					fh1=returnfh();
+					fh1=returnfh(i);
 					sizes[3]=flagsize;
+				}
+				else{
+					fh1=returnfh(i);
 				}
 				if(n==1){
 					printf("%.0lf",x1);
@@ -218,13 +230,16 @@ void out(int n)
 				x1=t[i++];
 				x2=t[i++];
 				x3=t[i];
-				fh2=returnfh();
+				fh2=returnfh(i);
 				//避免出现除以0的情况 
 				if((x2-x3)==0&&fh2==1){
 					int flagsize=sizes[3];
 					sizes[3]=0;
-					fh1=returnfh();
+					fh1=returnfh(i);
 					sizes[3]=flagsize;
+				}
+				else{
+					fh1=returnfh(i);
 				}
 				if(n==1){
 					fprintf(fp1,"%.0lf",x1);
@@ -249,12 +264,15 @@ void out(int n)
 	}
 	printf("打印成功，请按任意键继续\n");
 	getchar();getchar();
+	system("cls");
 }
 int main()
 {
 	//操作0退出1整数2小数 
 	int n;
 	while(1){
+		memset(sizes,0,sizeof(sizes));
+		memset(t,0,sizeof(t));
 		printf("请输入你想进行的操作，仅输入数字即可\n1.整数\n2.小数\n0.退出\n");
 		scanf("%d",&n);
 		if(n==0||n==1||n==2){
