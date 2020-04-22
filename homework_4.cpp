@@ -5,12 +5,12 @@
 #include<iostream>
 using namespace std;
 double t[30005];
-//¸öÊı ×î´óÖµ À¨ºÅ Êä³ö 
+//ä¸ªæ•° æœ€å¤§å€¼ æ‹¬å· è¾“å‡º
 int x,maxn,kh,outp;
-//ÔËËã·û 
+//è¿ç®—ç¬¦
 int sizes[4];
-//Éú³ÉËæ»úÊı 
-//´«Èë²ÎÊı Õû/Ğ¡
+//ç”Ÿæˆéšæœºæ•° 
+//ä¼ å…¥å‚æ•° æ•´/å°
 void gen(int n)
 {
 	x*=3;
@@ -30,7 +30,7 @@ void gen(int n)
 		}
 	}
 }
-//Îªoutº¯ÊıÌá¹©Êä³öµÄ·ûºÅ
+//éšæœºç”Ÿæˆç¬¦å·
 int returnfh(int i)
 {
 	while(1){
@@ -45,7 +45,7 @@ int returnfh(int i)
 		}
 	}
 }
-//Îªoutº¯ÊıÌá¹©Êä³öµÄ·ûºÅ 
+//ä¸ºoutå‡½æ•°æä¾›è¾“å‡ºçš„ç¬¦å·
 void outfh(int fun_fh)
 {
 	if(fun_fh==0){
@@ -61,7 +61,7 @@ void outfh(int fun_fh)
 		printf(" / ");
 	}
 }
-//ÍùÎÄ¼şÖĞĞ´Èë 
+//å¾€æ–‡ä»¶ä¸­å†™å…¥ç¬¦å·
 int outfh_file(int fun_fh,FILE *fp)
 {
 	if(fun_fh==0){
@@ -77,14 +77,14 @@ int outfh_file(int fun_fh,FILE *fp)
 		fprintf(fp," / ");
 	}
 }
-//¼ÆËãÍùtxtÊä³öµÄ½á¹û
-//abÎªÊı×ÖcÎª·ûºÅ 
+//è®¡ç®—å¾€txtè¾“å‡ºçš„ç»“æœ
+//abä¸ºæ•°å­—cä¸ºç¬¦å· 
 double cal_out(double a,double b,int c)
 {
 	return c==0?(a+b):(c==1?(a-b):(c==2?(a*b):(a/b)));
 } 
-//¼ÆËãÍùtxtÊä³öµÄ½á¹û
-//abcÎªÊı×ÖdeÎª·ûºÅ 
+//è®¡ç®—å¾€txtè¾“å‡ºçš„ç»“æœ
+//abcä¸ºæ•°å­—deä¸ºç¬¦å· 
 double cal_out_no(double a,double b,double c,int d,int e)
 {
 	if(d<2&&e>1){
@@ -94,27 +94,27 @@ double cal_out_no(double a,double b,double c,int d,int e)
 		return cal_out(cal_out(a,b,d),c,e);
 	}
 } 
-//°´ÒªÇóÊä³ö 
+//æŒ‰è¦æ±‚è¾“å‡º
 void out(int n)
 {
-	//±êÌâ 
+	//æ ‡é¢˜
 	int id=1;
 	FILE *fp1,*fp2;
 	double x1,x2,x3;
 	int fh1,fh2;
 	system("cls");
-	//ÓĞÀ¨ºÅ 
+	//æœ‰æ‹¬å· 
 	if(kh){
-		//Ö±½Ó´òÓ¡ 
+		//ç›´æ¥æ‰“å°
 		if(outp==0){
 			for(int i=0;i<x;i++){
-				//±êÌâ 
+				//æ ‡é¢˜
 				printf("%d.",id++);
 				x1=t[i++];
 				x2=t[i++];
 				x3=t[i];
 				fh2=returnfh(i);
-				//±ÜÃâ³öÏÖ³ıÒÔ0µÄÇé¿ö 
+				//é¿å…å‡ºç°é™¤ä»¥0çš„æƒ…å†µ
 				if((x2-x3)==0&&fh2==1){
 					int flagsize=sizes[3];
 					sizes[3]=0;
@@ -140,19 +140,19 @@ void out(int n)
 				}
 			}
 		}
-		//Êä³ötxt 
+		//è¾“å‡ºtxt 
 		else{
 			fp1=fopen("question.txt","w");
 			fp2=fopen("answer.txt","w");
 			for(int i=0;i<x;i++){
-				//±êÌâ 
+				//æ ‡é¢˜
 				fprintf(fp1,"%d.",id);
 				fprintf(fp2,"%d.\t",id++);
 				x1=t[i++];
 				x2=t[i++];
 				x3=t[i];
 				fh2=returnfh(i);
-				//±ÜÃâ³öÏÖ³ıÒÔ0µÄÇé¿ö 
+				//é¿å…å‡ºç°é™¤ä»¥0çš„æƒ…å†µ
 				if((x2-x3)==0&&fh2==1){
 					int flagsize=sizes[3];
 					sizes[3]=0;
@@ -184,16 +184,16 @@ void out(int n)
 		}
 	}
 	else{
-		//Ö±½Ó´òÓ¡ 
+		//ç›´æ¥æ‰“å° 
 		if(outp==0){
 			for(int i=0;i<x;i++){
-				//±êÌâ 
+				//æ ‡é¢˜ 
 				printf("%d.",id++);
 				x1=t[i++];
 				x2=t[i++];
 				x3=t[i];
 				fh2=returnfh(i);
-				//±ÜÃâ³öÏÖ³ıÒÔ0µÄÇé¿ö 
+				//é¿å…å‡ºç°é™¤ä»¥0çš„æƒ…å†µ 
 				if((x2-x3)==0&&fh2==1){
 					int flagsize=sizes[3];
 					sizes[3]=0;
@@ -219,19 +219,19 @@ void out(int n)
 				}
 			}
 		}
-		//Êä³ötxt 
+		//è¾“å‡ºtxt 
 		else{
 			fp1=fopen("question.txt","w");
 			fp2=fopen("answer.txt","w");
 			for(int i=0;i<x;i++){
-				//±êÌâ 
+				//æ ‡é¢˜ 
 				fprintf(fp1,"%d.\t",id);
 				fprintf(fp2,"%d.\t",id++);
 				x1=t[i++];
 				x2=t[i++];
 				x3=t[i];
 				fh2=returnfh(i);
-				//±ÜÃâ³öÏÖ³ıÒÔ0µÄÇé¿ö 
+				//é¿å…å‡ºç°é™¤ä»¥0çš„æƒ…å†µ 
 				if((x2-x3)==0&&fh2==1){
 					int flagsize=sizes[3];
 					sizes[3]=0;
@@ -262,18 +262,18 @@ void out(int n)
 			fclose(fp2);
 		}
 	}
-	printf("´òÓ¡³É¹¦£¬Çë°´ÈÎÒâ¼ü¼ÌĞø\n");
+	printf("æ‰“å°æˆåŠŸï¼Œè¯·æŒ‰ä»»æ„é”®ç»§ç»­\n");
 	getchar();getchar();
 	system("cls");
 }
 int main()
 {
-	//²Ù×÷0ÍË³ö1ÕûÊı2Ğ¡Êı 
+	//æ“ä½œ0é€€å‡º1æ•´æ•°2å°æ•° 
 	int n;
 	while(1){
 		memset(sizes,0,sizeof(sizes));
 		memset(t,0,sizeof(t));
-		printf("ÇëÊäÈëÄãÏë½øĞĞµÄ²Ù×÷£¬½öÊäÈëÊı×Ö¼´¿É\n1.ÕûÊı\n2.Ğ¡Êı\n0.ÍË³ö\n");
+		printf("è¯·è¾“å…¥ä½ æƒ³è¿›è¡Œçš„æ“ä½œï¼Œä»…è¾“å…¥æ•°å­—å³å¯\n1.æ•´æ•°\n2.å°æ•°\n0.é€€å‡º\n");
 		scanf("%d",&n);
 		if(n==0||n==1||n==2){
 			if(n==0){
@@ -281,14 +281,14 @@ int main()
 			}
 			else{
 				while(1){
-					printf("ÇëÊäÈëÏëÉú³ÉµÈÊ½µÄ¸öÊı\nÈ¡Öµ·¶Î§Îª1-10000\n");
+					printf("è¯·è¾“å…¥æƒ³ç”Ÿæˆç­‰å¼çš„ä¸ªæ•°\nå–å€¼èŒƒå›´ä¸º1-10000\n");
 					scanf("%d",&x);
 					if(x>=1&&x<=10000){
-						printf("ÇëÊäÈë×î´óÖµ\n");
+						printf("è¯·è¾“å…¥æœ€å¤§å€¼\n");
 						scanf("%d",&maxn);
 						gen(n);
 						while(1){
-							printf("ÇëÊäÈëÏëÒªµÄËÄÔòÔËËã·û\n¸ñÊ½ÎªËÄ¸ö0»ò1µÄÊı×Ö£¬·Ö±ğ´ú±í¼Ó¼õ³Ë³ı\n0´ú±í²»ÓÃ´ËÔËËã·û£¬1´ú±íÓÃ£¬ÖĞ¼äÓÃ¿Õ¸ñ¸ô¿ª\n");
+							printf("è¯·è¾“å…¥æƒ³è¦çš„å››åˆ™è¿ç®—ç¬¦\næ ¼å¼ä¸ºå››ä¸ª0æˆ–1çš„æ•°å­—ï¼Œåˆ†åˆ«ä»£è¡¨åŠ å‡ä¹˜é™¤\n0ä»£è¡¨ä¸ç”¨æ­¤è¿ç®—ç¬¦ï¼Œ1ä»£è¡¨ç”¨ï¼Œä¸­é—´ç”¨ç©ºæ ¼éš”å¼€\n");
 							for(int i=0;i<4;i++){
 								scanf("%d",&sizes[i]);
 							}
@@ -300,36 +300,36 @@ int main()
 							}
 							if(flagr==1){
 								while(1){
-									printf("ÇëÊäÈëÊÇ·ñ´øÀ¨ºÅ£¬0²»´ø£¬1´ø\n");
+									printf("è¯·è¾“å…¥æ˜¯å¦å¸¦æ‹¬å·ï¼Œ0ä¸å¸¦ï¼Œ1å¸¦\n");
 									scanf("%d",&kh);
 									if(kh==0||kh==1){
 										while(1){
-											printf("ÇëÑ¡ÔñÊä³ö·½Ê½£¬0Ö±½Ó´òÓ¡£¬1ÒÔtxtÊä³ö\n");
+											printf("è¯·é€‰æ‹©è¾“å‡ºæ–¹å¼ï¼Œ0ç›´æ¥æ‰“å°ï¼Œ1ä»¥txtè¾“å‡º\n");
 											scanf("%d",&outp);
 											if(outp==0||outp==1){
 												out(n);
 												goto END;
 											} 
 											else{
-												printf("ÊäÈëÓĞÎóÇëÖØĞÂÊäÈë\n");
+												printf("è¾“å…¥æœ‰è¯¯è¯·é‡æ–°è¾“å…¥\n");
 											}
 										}
 									}
 									else
-										printf("ÊäÈëÓĞÎóÇëÖØĞÂÊäÈë\n");
+										printf("è¾“å…¥æœ‰è¯¯è¯·é‡æ–°è¾“å…¥\n");
 								}
 							}
 							else
-								printf("ÊäÈëÓĞÎóÇëÖØĞÂÊäÈë\n");
+								printf("è¾“å…¥æœ‰è¯¯è¯·é‡æ–°è¾“å…¥\n");
 						}
 					}
 					else
-						printf("ÊäÈëÓĞÎóÇëÖØĞÂÊäÈë\n");
+						printf("è¾“å…¥æœ‰è¯¯è¯·é‡æ–°è¾“å…¥\n");
 				}
 			}
 		}
 		else
-			printf("ÊäÈëÓĞÎóÇëÖØĞÂÊäÈë\n");
+			printf("è¾“å…¥æœ‰è¯¯è¯·é‡æ–°è¾“å…¥\n");
 		END:;
 	}
 } 
